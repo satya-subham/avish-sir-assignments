@@ -1,14 +1,11 @@
 const body = document.querySelector("body");
 const all = document.querySelector("#all");
-const red = document.querySelector("#red");
-const blue = document.querySelector("#blue");
-const black = document.querySelector("#black");
-const yellow = document.querySelector("#yellow");
+const search = document.querySelector('#search');
 const createTask = document.querySelector(".task-btn");
 const form = document.querySelector('.form');
 const done = document.querySelector('.done');
 const cross = document.querySelector('.close');
-// const movieContainer = document.querySelector('.movie-container')
+const mainMovieContainer = document.querySelector('.main-movie-container');
 
 createTask.addEventListener('click', (event)=>{
     form.style.display = 'block';
@@ -27,10 +24,11 @@ const trailerLink = document.querySelector('#trailer-link');
 const actor = document.querySelector('#actor-name');
 const director = document.querySelector('#director-name');
 let data = [];
+let input = document.getElementsByTagName('input');
 done.addEventListener('click', (event)=>{
     // form.remove();
     form.style.display = 'none';
-
+    input.value = '';
     const movieContainer = document.createElement('div');
     movieContainer.classList.add('movie-container')
     movieContainer.innerHTML = `<h1>${movieName.value}</h1>
@@ -39,6 +37,7 @@ done.addEventListener('click', (event)=>{
                                 <p>Link :<a href="">${trailerLink.value}</a> </p>
                                 <p>IMDB : ${imdbRating.value}</p>
                                 <p>Category : ${category.value}</p>
+                                <button id="play"><i class="fa-solid fa-play"></i></button>
                                 `
         
                                 let obj = {
@@ -48,6 +47,6 @@ done.addEventListener('click', (event)=>{
                                     director: director.value,
                                 };
                                 data.push(obj);
-
-    body.append(movieContainer)
+    mainMovieContainer.append(movieContainer);
+    body.append(mainMovieContainer);
 })
