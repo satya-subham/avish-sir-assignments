@@ -60,6 +60,7 @@
 .main-movie-container{
     width: 98vw;
     height: auto;
+    
 }
 .form{
     width: 700px;
@@ -102,7 +103,7 @@ input{
 }
 .movie-container{
     width: 280px;
-    height: 400px;
+    height: auto;
     margin: 10px;
     text-align: center;
     display: inline-block;
