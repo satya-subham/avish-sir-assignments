@@ -12,77 +12,69 @@ createTask.addEventListener("click", (event) => {
 });
 cross.addEventListener("click", (event) => {
   form.remove();
-  // form.style.visibility = 'hidden';
-  // form.style.display = 'none';
 });
 
-const movieName = document.querySelector("#movie-name");
-const movieLink = document.querySelector("#movie-image-link");
-const imdbRating = document.querySelector("#imdb-rating");
-const category = document.querySelector("#category");
-const trailerLink = document.querySelector("#trailer-link");
-const actor = document.querySelector("#actor-name");
-const director = document.querySelector("#director-name");
 let data = [];
 
-// let input = document.getElementsByTagName('input');
-
 done.addEventListener("click", (event) => {
-  // form.remove();
-
+  event.preventDefault();
   form.style.display = "none";
-
+  const movieName = document.querySelector("#movie-name").value;
+  const imdbRating = document.querySelector("#imdb-rating").value;
+  const category = document.querySelector("#category").value;
+  const actor = document.querySelector("#actor-name").value;
+  const director = document.querySelector("#director-name").value;
+  const movieLink = document.querySelector("#movie-image-link").value;
+  const trailerLink = document.querySelector("#trailer-link").value;
   let obj = {
-    movie: movieName.value,
-    actor: actor.value,
-    director: director.value,
-    IMDB: imdbRating.value,
-    cate: category.value,
+    movie: movieName,
+    actor: actor,
+    director: director,
+    IMDB: imdbRating,
+    cate: category,
+    movieLink: movieLink,
+    trailerLink: trailerLink,
   };
   data.push(obj);
-  // data.push(movieName.value);
-  // data.push(actor.value);
-  // data.push(director.value);
-  // data.push(imdbRating.value);
-  // console.log(data);
 
   showData(data);
 });
 
 function showData(newData) {
+  mainMovieContainer.innerHTML = "";
   newData.map((e) => {
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container");
 
     const image = document.createElement("img");
-    image.setAttribute("src", `${e.movieLink.value}`);
+    image.setAttribute("src", `${e.movieLink}`);
     image.style.width = "200px";
     image.style.height = "100px";
     movieContainer.append(image);
 
     const movie = document.createElement("h2");
-    movie.innerText = "Movie:" + " " + `${e.movieName.value}`;
+    movie.innerText = "Movie:" + " " + `${e.movie}`;
     movieContainer.append(movie);
 
     const actorName = document.createElement("h3");
-    actorName.innerText = "Actor:" + " " + `${e.actor.value}`;
+    actorName.innerText = "Actor:" + " " + `${e.actor}`;
     movieContainer.append(actorName);
 
     const directorName = document.createElement("h3");
-    directorName.innerText = "Director:" + " " + `${e.director.value}`;
+    directorName.innerText = "Director:" + " " + `${e.director}`;
     movieContainer.append(directorName);
 
     const link = document.createElement("a");
-    link.setAttribute("href", `${e.trailerLink.value}`);
+    link.setAttribute("href", `${e.trailerLink}`);
     link.innerText = "Watch This Movie";
     movieContainer.append(link);
 
     const IMDB = document.createElement("h3");
-    IMDB.innerText = "IMDB :" + " " + `${e.imdbRating.value}`;
+    IMDB.innerText = "IMDB :" + " " + `${e.IMDB}`;
     movieContainer.append(IMDB);
 
     const cate = document.createElement("h3");
-    cate.innerText = "Category :" + " " + `${e.category.value}`;
+    cate.innerText = "Category :" + " " + `${e.cate}`;
     movieContainer.append(cate);
 
     const play = document.createElement("button");
@@ -90,7 +82,7 @@ function showData(newData) {
     movieContainer.append(play);
 
     const playLink = document.createElement("a");
-    playLink.setAttribute("href", `${e.trailerLink.value}`);
+    playLink.setAttribute("href", `${e.trailerLink}`);
     playLink.setAttribute("target", "_blank");
     playLink.innerText = "Play";
     play.append(playLink);
@@ -104,32 +96,20 @@ const search = document.querySelector("#search");
 const searchBtn = document.querySelector("#search-btn");
 
 searchBtn.addEventListener("click", (event) => {
-  let filterData = data.filter((e) => {
-    return e.movie == `${search.value}`;
+  let movieData = data.filter((e) => {
+    return e.movie == search.value;
   });
+
+  let actorData = data.filter((e) => {
+    return e.actor == search.value;
+  });
+
+  showData(movieData, actorData);
+  
 });
+
+
 
 all.addEventListener("click", (event) => {
   body.append(mainMovieContainer);
 });
-
-// data.forEach(element => {
-//   mainMovieContainer.remove();
-//   if (element.includes(search.value)) {
-//     let newMainMovieContainer = document.createElement('div');
-//     newMainMovieContainer.classList.add("movie-container");
-//     body.append(newMainMovieContainer);
-
-//   }
-// });
-
-// console.log(data);
-//    movieContainer.remove();
-
-//   // mainMovieContainer.remove();
-//   data.filter((element) => {
-//     if (search.value == element.movie) {
-//       mainMovieContainer.append(movieContainer)
-//       body.append(mainMovieContainer)
-//     }
-//   });

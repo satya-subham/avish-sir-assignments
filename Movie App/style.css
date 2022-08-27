@@ -1,0 +1,112 @@
+.nav-container{
+    width: 98vw;
+    height: 50px;
+    background-color: cadetblue;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 4px 8px cyan;
+}
+.all-btns{
+    width: 350px;
+    height: 35px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+}
+.all{
+    width: 40px;
+    height: 25px;
+    background: aliceblue;
+    border-radius: 5px;
+    border: 2px solid crimson;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.all:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+#search{
+    width: 200px;
+    height: 25px;
+}
+.task-btn{
+    width: 100px;
+    height: 35px;
+    background-color: chartreuse;
+    color: white;
+    border-radius: 20px;
+    border: cyan;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.task-btn:active{
+  box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+
+
+/*==========================================
+=============     MAIN      ================
+=========================================== */
+.main-movie-container{
+    width: 98vw;
+    height: auto;
+    
+}
+.form{
+    width: 700px;
+    height: 300px;
+    position: fixed;
+    background-color: #333;
+    border-radius: 10px;
+    top: 200px;
+    left: 500px;
+    /* visibility: hidden; */
+    display: none;
+    
+}
+input{
+    width: 300px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: large;
+}
+.done{
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: crimson;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.done:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.close{
+    position: absolute;
+    top: 3px;
+    left: 96%;
+}
+.movie-container{
+    width: 280px;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: cadetblue;
+}
