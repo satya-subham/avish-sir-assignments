@@ -57,6 +57,24 @@
 /*==========================================
 =============     MAIN      ================
 =========================================== */
+
+.toggle{
+    width: 100%;
+    height: 100%;
+    background-color: #25161647;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
 .main-movie-container{
     width: 98vw;
     height: auto;

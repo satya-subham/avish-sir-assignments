@@ -5,12 +5,15 @@ const form = document.querySelector(".form");
 const done = document.querySelector(".done");
 const cross = document.querySelector(".close");
 const mainMovieContainer = document.querySelector(".main-movie-container");
+const mainContainer = document.querySelector(".main-container");
 
 createTask.addEventListener("click", (event) => {
+  mainContainer.classList.toggle('toggle')
   form.style.display = "block";
   body.append(form);
 });
 cross.addEventListener("click", (event) => {
+  mainContainer.classList.toggle('toggle')
   form.remove();
 });
 
@@ -18,6 +21,7 @@ let data = [];
 
 done.addEventListener("click", (event) => {
   event.preventDefault();
+  mainContainer.classList.toggle('toggle');
   form.style.display = "none";
   const movieName = document.querySelector("#movie-name").value;
   const imdbRating = document.querySelector("#imdb-rating").value;
